@@ -2,8 +2,21 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  // NomeUtente
+  static getAdminName(): string {
+    return 'admin';
+  }
+
+  // Password
+  static getAdminPassword(): string {
+    return 'angular';
+  }
+
   login(username: string, password: string): boolean {
-    if (username === 'admin' && password === 'angular') {
+    if (
+      username === AuthService.getAdminName() &&
+      password === AuthService.getAdminPassword()
+    ) {
       localStorage.setItem('token', 'fake-jwt-token');
       return true;
     }

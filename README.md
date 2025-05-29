@@ -1,5 +1,10 @@
 # Magazzino
 
+Quest'app Angular era nata originariamente come gestionale di magazzino, successivamente è stato implementato anche un login/logout.
+Ho successivamente crato poi una pagina per la vetrina dei prodotti e quindi ho pensato di aggiungere anche un carrello per la gestione degli acquisti.
+Per effettuare il login utilizzare le credenziali:
+**admin** e **angular**
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
 
 ## Development server

@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="title" routerLink="/">Home</a>
+    <a class="subTitle">{{ titlePage }}</a>
+    <div class="nav-group">
+      <a class="nav-link" *ngIf="!isLoggedIn()" (click)="productList()"
+        >Prodotti</a
+      >
+      <a *ngIf="!isLoggedIn()" class="nav-link" (click)="cart()">Carrello</a>
+      <a class="nav-link" *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+      <ng-container *ngIf="isLoggedIn()">
+        <a class="nav-link" (click)="addProduct()">Gestisci prodotti</a>
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </ng-container>
+    </div>
+  </div>
+</nav>

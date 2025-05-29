@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Accesso al Magazzino</h2>
+    </div>
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+      <div class="form-group">
+        <label for="username">Nome Utente</label>
+        <input
+          [formControl]="loginControl"
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          required
+          placeholder="Inserisci il tuo username"
+        />
+
+        <p
+          class="error-message"
+          *ngIf="loginControl.errors?.['required'] && loginControl.touched"
+        >
+          Il campo nome utente è obbligatorio.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Inserisci la tua password"
+        />
+
+        <p
+          class="error-message"
+          *ngIf="loginControl.errors?.['required'] && loginControl.touched"
+        >
+          Il campo password è obbligatorio.
+        </p>
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        <p>Credenziali non valide</p>
+        <p>Riprova!</p>
+      </div>
+
+      <button type="submit" class="login-button">Accedi</button>
+    </form>
+  </div>
+</div>

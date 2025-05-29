@@ -1,0 +1,32 @@
+<app-navbar [titlePage]="pageTitle"></app-navbar>
+<div class="cart-container">
+  <h2>Il tuo Carrello</h2>
+  <div *ngIf="cartItems.length > 0">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="item-details">
+        <h3>{{ item.name }}</h3>
+        <p class="description">
+          {{ item.description }} - Quantità: {{ item.cartQuantity }}
+        </p>
+        <p class="price">Prezzo: €{{ item.price }}</p>
+      </div>
+      <button class="remove-button" (click)="removeItem(item)">Rimuovi</button>
+    </div>
+    <div class="cart-actions">
+      <button class="clear-button" (click)="clearCart()">
+        Svuota Carrello
+      </button>
+    </div>
+  </div>
+  <div class="empty-cart" *ngIf="cartItems.length === 0">
+    <h2>Il tuo carrello è vuoto</h2>
+    <button
+      type="button"
+      class="buttonList"
+      (click)="productList()"
+      aria-label="Vai alla lista dei prodotti"
+    >
+      Prodotti disponibili
+    </button>
+  </div>
+</div>

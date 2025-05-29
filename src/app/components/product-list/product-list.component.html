@@ -1,0 +1,25 @@
+<app-navbar [titlePage]="pageTitle"></app-navbar>
+<div class="product-list-container">
+  <div class="added-to-cart-message" [class.visible]="isAddedToCart">
+    Aggiunto al carrello!
+  </div>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products$ | async">
+      <div class="product-content">
+        <div class="product-header">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <button class="add-to-cart" (click)="addToCart(product)">
+            Aggiugni al carrello
+          </button>
+        </div>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="product-details">
+          <p class="product-quantity">
+            Disponibilità: {{ product.quantity }} pezzi
+          </p>
+          <p class="product-price">€{{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

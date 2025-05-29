@@ -1,0 +1,96 @@
+<app-navbar [titlePage]="pageTitle"></app-navbar>
+<div class="management-container">
+  <!-- aggiungi/modifica prodotto -->
+  <form (ngSubmit)="saveProduct()" #productForm="ngForm" class="product-form">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input
+          type="text"
+          [(ngModel)]="editingProduct.name"
+          name="name"
+          required
+          placeholder="Nome prodotto"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Descrizione</label>
+        <input
+          type="text"
+          [(ngModel)]="editingProduct.description"
+          name="description"
+          required
+          placeholder="Descrizione prodotto"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantità</label>
+        <input
+          type="number"
+          [(ngModel)]="editingProduct.quantity"
+          name="quantity"
+          required
+          placeholder="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Prezzo</label>
+        <input
+          type="number"
+          [(ngModel)]="editingProduct.price"
+          name="price"
+          required
+          placeholder="0"
+        />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="primary-button">
+          {{ isEditing ? "Aggiorna" : "Aggiungi" }}
+        </button>
+        <button
+          type="button"
+          class="secondary-button"
+          *ngIf="isEditing"
+          (click)="resetForm()"
+        >
+          Annulla
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Lista dei prodotti -->
+  <div class="table-container">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrizione</th>
+          <th>Quantità</th>
+          <th>Prezzo</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products$ | async">
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>€{{ product.price }}</td>
+          <td>
+            <button class="edit-button" (click)="startEdit(product)">
+              Modifica
+            </button>
+            <button class="delete-button" (click)="deleteProduct(product.id)">
+              Elimina
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

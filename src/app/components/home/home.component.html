@@ -1,0 +1,27 @@
+<app-navbar [titlePage]="pageTitle"></app-navbar>
+<div class="home-container">
+  <div class="content-container">
+    <h2 class="content-title">
+      Vai alla sezione dei nostri prodotti disponibili
+    </h2>
+    <div class="button-wrapper">
+      <button
+        type="button"
+        class="buttonList"
+        (click)="productList()"
+        aria-label="Vai alla lista dei prodotti"
+      >
+        Prodotti disponibili
+      </button>
+    </div>
+    <p class="content-description">
+      Quest'app Angular era nata originariamente come gestionale di magazzino,
+      successivamente è stato implementato anche un login/logout. Ho
+      successivamente crato poi una pagina per la vetrina dei prodotti e quindi
+      ho pensato di aggiungere anche un carrello per la gestione degli acquisti.
+      Per effettuare il login utilizzare le credenziali:
+      <strong>admin</strong> e
+      <strong>angular</strong>
+    </p>
+  </div>
+</div>
